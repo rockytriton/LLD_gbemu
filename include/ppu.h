@@ -3,4 +3,4 @@
 #include <common.h>
 
 void ppu_init();
-bool ppu_tick();
+void ppu_tick();

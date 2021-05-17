@@ -46,7 +46,7 @@ bool cart_load(char *cart) {
         x = x - ctx.rom_data[i] - 1;
     }
 
-    printf("\t Checksum : %2.2X (%s)", ctx.header->checksum, (x & 0xFF) ? "PASSED" : "FAILED");
+    printf("\t Checksum : %2.2X (%s)\n", ctx.header->checksum, (x & 0xFF) ? "PASSED" : "FAILED");
 
-    
+    return true;
 }

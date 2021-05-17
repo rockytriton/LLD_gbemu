@@ -1,5 +1,5 @@
 lib_LTLIBRARIES = libgbe.la
-libgbe_la_SOURCES = emu.c
+libgbe_la_SOURCES = emu.c bus.c cart.c cpu.c ppu.c timer.c
 
 bin_PROGRAMS = $(top_builddir)/gbe
 __top_builddir__gbe_SOURCES = main.c

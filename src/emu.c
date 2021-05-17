@@ -22,7 +22,7 @@ emu_context *emu_get_context() {
 
 int emu_run(int argc, char **argv) {
     if (argc < 2) {
-        printf("Usage: emu <rom_file>");
+        printf("Usage: emu <rom_file>\n");
         return -1;
     }
 
@@ -40,8 +40,6 @@ int emu_run(int argc, char **argv) {
             usleep(10000);
             continue;
         }
-
-        ctx.ticks++;
 
         if (!cpu_step()) {
             printf("CPU Stopped\n");

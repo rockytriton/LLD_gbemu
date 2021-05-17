@@ -3,9 +3,11 @@
 #include <stdio.h>
 #include <emu.h>
 
+#include <cpu.h>
+
 START_TEST(test_nothing) {
-    int n = 0;
-    ck_assert_uint_eq(n, 0);
+    bool b = cpu_step();
+    ck_assert_uint_eq(b, false);
 } END_TEST
 
 Suite *stack_suite() {
