@@ -1,5 +1,5 @@
 #include <emu.h>
 
-int main() {
-    return emu_run();
+int main(int argc, char **argv) {
+    return emu_run(argc, argv);
 }
