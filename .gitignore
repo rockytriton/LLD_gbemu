@@ -13,4 +13,5 @@ ltmain.sh
 missing
 src/Makefile.in
 test-driver
-tests/Makefile.in
+tests/Makefile.inbuild
+build/
