@@ -45,8 +45,29 @@ if(NOT HAVE_PID_T)
   endif(WIN32)
 endif(NOT HAVE_PID_T)
 
-###############################################################################
-# Check libraries
+set(SDL2_DIR "${PROJECT_SOURCE_DIR}/windows_deps/sdl2")
+set(SDL2_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/windows_deps/sdl2/include;${PROJECT_SOURCE_DIR}/windows_deps/sdl2/include/SDL2")
+
+# Support both 32 and 64 bit builds
+if (${CMAKE_SIZEOF_VOID_P} MATCHES 8)
+  set(SDL2_LIBRARIES "${PROJECT_SOURCE_DIR}/windows_deps/sdl2/lib/x64/SDL2.lib;${PROJECT_SOURCE_DIR}/windows_deps/sdl2/lib/x64/SDL2main.lib")
+else ()
+  set(SDL2_LIBRARIES "${PROJECT_SOURCE_DIR}/windows_deps/sdl2/lib/x86/SDL2.lib;${PROJECT_SOURCE_DIR}/windows_deps/sdl2/lib/x86/SDL2main.lib")
+endif ()
+
+string(STRIP "${SDL2_LIBRARIES}" SDL2_LIBRARIES)
+
+set(SDL2_TTF_DIR "${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf")
+set(SDL2_TTF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf/include")
+
+# Support both 32 and 64 bit builds
+if (${CMAKE_SIZEOF_VOID_P} MATCHES 8)
+  set(SDL2_TTF_LIBRARIES "${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf/lib/x64/SDL2_ttf.lib")
+else ()
+  set(SDL2_TTF_LIBRARIES "${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf/lib/x86/SDL2_ttf.lib")
+endif ()
+
+string(STRIP "${SDL2_TTF_LIBRARIES}" SDL2_TTF_LIBRARIES)
 
 ###############################################################################
 # Generate "config.h" from "cmake/config.h.cmake"
@@ -55,6 +76,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/config.h.in
 include_directories(BEFORE ${CMAKE_CURRENT_BINARY_DIR})
 add_definitions(-DHAVE_CONFIG_H)
 set(CONFIG_HEADER ${CMAKE_CURRENT_BINARY_DIR}/config.h)
+
 
 ###############################################################################
 # Subdirectories

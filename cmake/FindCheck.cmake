@@ -17,10 +17,19 @@
 #  For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
 
-INCLUDE( FindPkgConfig )
+#
 
 # Take care about check.pc settings
+#
+
+if(WIN32)
+SET (CHECK_FOUND 1)
+SET (CHECK_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/windows_deps/check)
+SET (CHECK_LIBRARIES ${PROJECT_SOURCE_DIR}/windows_deps/check/check.lib)
+else()
+INCLUDE( FindPkgConfig )
 PKG_SEARCH_MODULE( CHECK Check )
+endif()
 
 # Look for CHECK include dir and libraries
 IF( NOT CHECK_FOUND )

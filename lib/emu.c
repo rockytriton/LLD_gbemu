@@ -2,7 +2,10 @@
 #include <emu.h>
 #include <cart.h>
 #include <cpu.h>
-#include <unistd.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+
+//#include <unistd.h>
 
 /* Emu components:
 
@@ -31,13 +34,16 @@ int emu_run(int argc, char **argv) {
         return -2;
     }
 
+    SDL_Init(SDL_INIT_VIDEO);
+    TTF_Init();
+
     ctx.running = true;
     ctx.paused = false;
     ctx.ticks = 0;
 
     while(ctx.running) {
         if (ctx.paused) {
-            usleep(10000);
+            //usleep(10000);
             continue;
         }
 
