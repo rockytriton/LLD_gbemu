@@ -5,8 +5,6 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
-//#include <unistd.h>
-
 /* Emu components:
 
   |Cart|
@@ -51,7 +49,7 @@ int emu_run(int argc, char **argv) {
 
     while(ctx.running) {
         if (ctx.paused) {
-            //usleep(10000);
+            delay(10);
             continue;
         }
 
