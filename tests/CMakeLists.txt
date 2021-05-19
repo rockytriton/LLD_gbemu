@@ -9,11 +9,11 @@ set(TEST_SOURCES
 )
 
 add_executable(check_gbe ${TEST_SOURCES})
-target_link_libraries(check_gbe libgbe ${CHECK_LIBRARIES})
+target_link_libraries(check_gbe emu ${CHECK_LIBRARIES})
 target_include_directories(check_gbe PRIVATE ${PROJECT_SOURCE_DIR}/include )
 
 if (WIN32)
-target_include_directories(libgbe PUBLIC ${PROJECT_SOURCE_DIR}/windows_deps/check )
+target_include_directories(emu PUBLIC ${PROJECT_SOURCE_DIR}/windows_deps/check )
 endif()
 
 if (WIN32)

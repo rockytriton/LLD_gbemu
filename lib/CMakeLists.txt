@@ -1,27 +1,24 @@
 
-set(LIB_SOURCES
-  bus.c
-  cpu.c
-  emu.c
-  cart.c
-  ppu.c
-  timer.c
-)
 
-file (GLOB headers "${PROJECT_SOURCE_DIR}/include/*.h")
+file (GLOB sources CONFIGURE_DEPENDS "${PROJECT_SOURCE_DIR}/lib/*.c")
 
-add_library(libgbe STATIC ${LIB_SOURCES} ${HEADERS})
+file (GLOB headers CONFIGURE_DEPENDS "${PROJECT_SOURCE_DIR}/include/*.h")
 
-target_include_directories(libgbe PUBLIC ${PROJECT_SOURCE_DIR}/include )
+add_library(emu STATIC ${sources} ${headers})
+
+target_include_directories(emu PUBLIC ${PROJECT_SOURCE_DIR}/include )
 
 if (WIN32)
-target_include_directories(libgbe PUBLIC ${PROJECT_SOURCE_DIR}/windows_deps/sdl2/include )
-target_include_directories(libgbe PUBLIC ${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf/include )
+  target_include_directories(emu PUBLIC ${PROJECT_SOURCE_DIR}/windows_deps/sdl2/include )
+  target_include_directories(emu PUBLIC ${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf/include )
+else()
+  target_include_directories(emu PUBLIC ${SDL2_INCLUDE_DIR})
+  target_link_libraries(emu PUBLIC ${SDL2_LIBRARY}) 
+  target_link_libraries(emu SDL2::Main SDL2::TTF)   
 endif()
 
-#find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
-target_link_libraries(libgbe ${SDL2_LIBRARIES})
+target_link_libraries(emu ${SDL2_LIBRARIES})
 
 include_directories(${SDL2_TTF_INCLUDE_DIRS})
-target_link_libraries(libgbe ${SDL2_TTF_LIBRARIES})
+target_link_libraries(emu ${SDL2_TTF_LIBRARIES})

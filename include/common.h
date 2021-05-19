@@ -16,4 +16,4 @@ typedef uint64_t u64;
 
 #define BETWEEN(a, b, c) ((a >= b) && (a <= c))
 
-
+void delay(u32 ms);

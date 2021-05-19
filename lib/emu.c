@@ -23,6 +23,10 @@ emu_context *emu_get_context() {
     return &ctx;
 }
 
+void delay(u32 ms) {
+    SDL_Delay(ms);
+}
+
 int emu_run(int argc, char **argv) {
     if (argc < 2) {
         printf("Usage: emu <rom_file>\n");
@@ -34,9 +38,13 @@ int emu_run(int argc, char **argv) {
         return -2;
     }
 
-    SDL_Init(SDL_INIT_VIDEO);
-    TTF_Init();
+    printf("Cart loaded..\n");
 
+    SDL_Init(SDL_INIT_VIDEO);
+    printf("SDL INIT\n");
+    TTF_Init();
+    printf("TTF INIT\n");
+    
     ctx.running = true;
     ctx.paused = false;
     ctx.ticks = 0;
