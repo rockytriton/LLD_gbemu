@@ -27,50 +27,50 @@ if (${CMAKE_SIZEOF_VOID_P} MATCHES 8)
   add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
-    ${PROJECT_SOURCE_DIR}/windows_deps/sdl2/lib/x64/SDL2.dll
+    ${PROJECT_SOURCE_DIR}/../windows_deps/sdl2/lib/x64/SDL2.dll
     $<TARGET_FILE_DIR:${PROJECT_NAME}>
     VERBATIM)
   add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
-    ${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf/lib/x64/SDL2_ttf.dll
+    ${PROJECT_SOURCE_DIR}/../windows_deps/sdl2_ttf/lib/x64/SDL2_ttf.dll
     $<TARGET_FILE_DIR:${PROJECT_NAME}>
     VERBATIM)
   add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
-    ${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf/lib/x64/zlib1.dll
+    ${PROJECT_SOURCE_DIR}/../windows_deps/sdl2_ttf/lib/x64/zlib1.dll
     $<TARGET_FILE_DIR:${PROJECT_NAME}>
     VERBATIM)
   add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
-    ${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf/lib/x64/libfreetype-6.dll
+    ${PROJECT_SOURCE_DIR}/../windows_deps/sdl2_ttf/lib/x64/libfreetype-6.dll
     $<TARGET_FILE_DIR:${PROJECT_NAME}>
     VERBATIM)
 else ()
   add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
-    ${PROJECT_SOURCE_DIR}/windows_deps/sdl2/lib/x86/SDL2.dll
+    ${PROJECT_SOURCE_DIR}/../windows_deps/sdl2/lib/x86/SDL2.dll
     $<TARGET_FILE_DIR:${PROJECT_NAME}>
     VERBATIM)
   add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
-    ${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf/lib/x86/SDL2_ttf.dll
+    ${PROJECT_SOURCE_DIR}/../windows_deps/sdl2_ttf/lib/x86/SDL2_ttf.dll
     $<TARGET_FILE_DIR:${PROJECT_NAME}>
     VERBATIM)
   add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
-    ${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf/lib/x86/zlib1.dll
+    ${PROJECT_SOURCE_DIR}/../windows_deps/sdl2_ttf/lib/x86/zlib1.dll
     $<TARGET_FILE_DIR:${PROJECT_NAME}>
     VERBATIM)
   add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
-    ${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf/lib/x86/libfreetype-6.dll
+    ${PROJECT_SOURCE_DIR}/../windows_deps/sdl2_ttf/lib/x86/libfreetype-6.dll
     $<TARGET_FILE_DIR:${PROJECT_NAME}>
     VERBATIM)
 endif ()

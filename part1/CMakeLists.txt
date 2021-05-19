@@ -46,26 +46,26 @@ if(NOT HAVE_PID_T)
 endif(NOT HAVE_PID_T)
 
 if(WIN32)
-  set(SDL2_DIR "${PROJECT_SOURCE_DIR}/windows_deps/sdl2")
-  set(SDL2_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/windows_deps/sdl2/include;${PROJECT_SOURCE_DIR}/windows_deps/sdl2/include/SDL2")
+  set(SDL2_DIR "${PROJECT_SOURCE_DIR}/../windows_deps/sdl2")
+  set(SDL2_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/../windows_deps/sdl2/include;${PROJECT_SOURCE_DIR}/../windows_deps/sdl2/include/SDL2")
 
   # Support both 32 and 64 bit builds
   if (${CMAKE_SIZEOF_VOID_P} MATCHES 8)
-    set(SDL2_LIBRARIES "${PROJECT_SOURCE_DIR}/windows_deps/sdl2/lib/x64/SDL2.lib;${PROJECT_SOURCE_DIR}/windows_deps/sdl2/lib/x64/SDL2main.lib")
+    set(SDL2_LIBRARIES "${PROJECT_SOURCE_DIR}/../windows_deps/sdl2/lib/x64/SDL2.lib;${PROJECT_SOURCE_DIR}/../windows_deps/sdl2/lib/x64/SDL2main.lib")
   else ()
-    set(SDL2_LIBRARIES "${PROJECT_SOURCE_DIR}/windows_deps/sdl2/lib/x86/SDL2.lib;${PROJECT_SOURCE_DIR}/windows_deps/sdl2/lib/x86/SDL2main.lib")
+    set(SDL2_LIBRARIES "${PROJECT_SOURCE_DIR}/../windows_deps/sdl2/lib/x86/SDL2.lib;${PROJECT_SOURCE_DIR}/../windows_deps/sdl2/lib/x86/SDL2main.lib")
   endif ()
 
   string(STRIP "${SDL2_LIBRARIES}" SDL2_LIBRARIES)
 
-  set(SDL2_TTF_DIR "${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf")
-  set(SDL2_TTF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf/include")
+  set(SDL2_TTF_DIR "${PROJECT_SOURCE_DIR}/../windows_deps/sdl2_ttf")
+  set(SDL2_TTF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/../windows_deps/sdl2_ttf/include")
 
   # Support both 32 and 64 bit builds
   if (${CMAKE_SIZEOF_VOID_P} MATCHES 8)
-    set(SDL2_TTF_LIBRARIES "${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf/lib/x64/SDL2_ttf.lib")
+    set(SDL2_TTF_LIBRARIES "${PROJECT_SOURCE_DIR}/../windows_deps/sdl2_ttf/lib/x64/SDL2_ttf.lib")
   else ()
-    set(SDL2_TTF_LIBRARIES "${PROJECT_SOURCE_DIR}/windows_deps/sdl2_ttf/lib/x86/SDL2_ttf.lib")
+    set(SDL2_TTF_LIBRARIES "${PROJECT_SOURCE_DIR}/../windows_deps/sdl2_ttf/lib/x86/SDL2_ttf.lib")
   endif ()
 
   string(STRIP "${SDL2_TTF_LIBRARIES}" SDL2_TTF_LIBRARIES)

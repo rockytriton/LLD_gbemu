@@ -13,15 +13,5 @@ target_link_libraries(check_gbe emu ${CHECK_LIBRARIES})
 target_include_directories(check_gbe PRIVATE ${PROJECT_SOURCE_DIR}/include )
 
 if (WIN32)
-target_include_directories(emu PUBLIC ${PROJECT_SOURCE_DIR}/windows_deps/check )
-endif()
-
-if (WIN32)
-# copy the .dll file to the same folder as the executable
-add_custom_command(
-    TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-    $<TARGET_FILE:CHECK>
-    $<TARGET_FILE_DIR:${PROJECT_NAME}>
-    VERBATIM)
+target_include_directories(emu PUBLIC ${PROJECT_SOURCE_DIR}/../windows_deps/check )
 endif()
