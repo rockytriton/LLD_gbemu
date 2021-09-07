@@ -274,7 +274,7 @@ if(SDL2_LIBRARY)
   # So I use a temporary variable until the end so I can set the
   # "real" variable in one-shot.
   if(APPLE)
-    set(SDL2_LIBRARIES ${SDL2_LIBRARIES} -framework Cocoa)
+    set(SDL2_LIBRARIES ${SDL2_LIBRARIES} )
   endif()
 
   # For threads, as mentioned Apple doesn't need this.

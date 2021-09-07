@@ -11,7 +11,7 @@ START_TEST(test_nothing) {
 } END_TEST
 
 Suite *stack_suite() {
-    Suite *s = suite_create("stack");
+    Suite *s = suite_create("emu");
     TCase *tc = tcase_create("core");
 
     tcase_add_test(tc, test_nothing);
