@@ -5,7 +5,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
-/* Emu components:
+/* 
+  Emu components:
 
   |Cart|
   |CPU|
@@ -42,6 +43,8 @@ int emu_run(int argc, char **argv) {
     printf("SDL INIT\n");
     TTF_Init();
     printf("TTF INIT\n");
+
+    cpu_init();
     
     ctx.running = true;
     ctx.paused = false;
@@ -57,6 +60,8 @@ int emu_run(int argc, char **argv) {
             printf("CPU Stopped\n");
             return -3;
         }
+
+        ctx.ticks++;
     }
 
     return 0;
