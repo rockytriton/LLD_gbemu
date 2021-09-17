@@ -40,7 +40,7 @@ void cpu_set_flags(cpu_context *ctx, char z, char n, char h, char c) {
 
 static void proc_xor(cpu_context *ctx) {
     ctx->regs.a ^= ctx->fetched_data & 0xFF;
-    cpu_set_flags(ctx, ctx->regs.a, 0, 0, 0);
+    cpu_set_flags(ctx, ctx->regs.a == 0, 0, 0, 0);
 }
 
 
