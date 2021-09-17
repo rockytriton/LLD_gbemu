@@ -10,7 +10,9 @@ instruction instructions[0x100] = {
 
     [0xAF] = {IN_XOR, AM_R, RT_A},
 
-    [0xC3] = {IN_JP, AM_D16}
+    [0xC3] = {IN_JP, AM_D16},
+
+    [0xF3] = {IN_DI}
 };
 
 instruction *instruction_by_opcode(u8 opcode) {
