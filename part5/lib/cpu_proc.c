@@ -47,6 +47,8 @@ static void proc_ld(cpu_context *ctx) {
             bus_write(ctx->mem_dest, ctx->fetched_data);
         }
 
+        emu_cycles(1);
+        
         return;
     }
 
