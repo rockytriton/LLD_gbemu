@@ -58,7 +58,7 @@ void fetch_data() {
         case AM_R_MR: {
             u16 addr = cpu_read_reg(ctx.cur_inst->reg_2);
 
-            if (ctx.cur_inst->reg_1 == RT_C) {
+            if (ctx.cur_inst->reg_2 == RT_C) {
                 addr |= 0xFF00;
             }
 
