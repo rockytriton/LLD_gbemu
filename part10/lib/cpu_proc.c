@@ -5,7 +5,7 @@
 
 //processes CPU instructions...
 
-void cpu_set_flags(cpu_context *ctx, char z, char n, char h, char c) {
+void cpu_set_flags(cpu_context *ctx, int8_t z, int8_t n, int8_t h, int8_t c) {
     if (z != -1) {
         BIT_SET(ctx->regs.f, 7, z);
     }
@@ -354,8 +354,9 @@ static void proc_jp(cpu_context *ctx) {
 }
 
 static void proc_jr(cpu_context *ctx) {
-    char rel = (char)(ctx->fetched_data & 0xFF);
+    int8_t rel = (char)(ctx->fetched_data & 0xFF);
     u16 addr = ctx->regs.pc + rel;
+
     goto_addr(ctx, addr, false);
 }
 
