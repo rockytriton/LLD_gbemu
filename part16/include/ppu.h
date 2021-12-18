@@ -45,12 +45,12 @@ typedef struct {
     u8 x;
     u8 tile;
     
-    u8 f_cgb_pn : 3;
-    u8 f_cgb_vram_bank : 1;
-    u8 f_pn : 1;
-    u8 f_x_flip : 1;
-    u8 f_y_flip : 1;
-    u8 f_bgp : 1;
+    unsigned f_cgb_pn : 3;
+    unsigned f_cgb_vram_bank : 1;
+    unsigned f_pn : 1;
+    unsigned f_x_flip : 1;
+    unsigned f_y_flip : 1;
+    unsigned f_bgp : 1;
 
 } oam_entry;
 
@@ -80,6 +80,7 @@ typedef struct {
 
     u8 fetched_entry_count;
     oam_entry fetched_entries[3]; //entries fetched during pipeline.
+    u8 window_line;
 
     u32 current_frame;
     u32 line_ticks;

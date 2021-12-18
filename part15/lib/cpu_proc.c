@@ -5,7 +5,7 @@
 
 //processes CPU instructions...
 
-void cpu_set_flags(cpu_context *ctx, char z, char n, char h, char c) {
+void cpu_set_flags(cpu_context *ctx, int8_t z, int8_t n, int8_t h, int8_t c) {
     if (z != -1) {
         BIT_SET(ctx->regs.f, 7, z);
     }
@@ -24,8 +24,7 @@ void cpu_set_flags(cpu_context *ctx, char z, char n, char h, char c) {
 }
 
 static void proc_none(cpu_context *ctx) {
-    
-    printf("INVALID INSTRUCTION! %2X\n", ctx->cur_opcode);
+    printf("INVALID INSTRUCTION!\n");
     exit(-7);
 }
 
@@ -196,7 +195,7 @@ static void proc_rla(cpu_context *ctx) {
 
 static void proc_stop(cpu_context *ctx) {
     fprintf(stderr, "STOPPING!\n");
-    NO_IMPL
+    //NO_IMPL
 }
 
 static void proc_daa(cpu_context *ctx) {
