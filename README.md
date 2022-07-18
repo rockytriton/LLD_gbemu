@@ -12,3 +12,5 @@ https://github.com/rockytriton/LLD_gbemu/raw/main/docs/The%20Cycle-Accurate%20Ga
 
 https://github.com/rockytriton/LLD_gbemu/raw/main/docs/gbctr.pdf
 
+
+NOTE: Designed to run on Linux, but you can build on Windows with MSYS2 and mingw-w64
